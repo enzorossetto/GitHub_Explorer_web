@@ -1,50 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
+import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
 import { Title, Form, Repositories } from './styles';
 
 const Dashboard: React.FC = () => {
+  const [newRepo, setNewRepo] = useState('');
+  const [repositories, setRepositories] = useState([]);
+
+  function handleAddRepository() {}
+
   return (
     <>
-      <img src={logoImg} alt='GitHub Explorer' />
+      <img src={logoImg} alt="GitHub Explorer" />
       <Title>Explore repositórios no GitHub</Title>
 
       <Form>
-        <input placeholder='Digite o nome do repositório' />
-        <button type='submit'>Pesquisar</button>
+        <input
+          value={newRepo}
+          onChange={(e) => setNewRepo(e.target.value)}
+          placeholder="Digite o nome do repositório"
+        />
+        <button type="submit">Pesquisar</button>
       </Form>
 
       <Repositories>
-        <a href='teste'>
+        <a href="teste">
           <img
-            src='https://avatars1.githubusercontent.com/u/46872902?s=460&u=7e7ec75c273f6efea8dd8daea334867705651c25&v=4'
-            alt='Enzo Rossetto'
-          />
-          <div>
-            <strong>enzorossetto/GoBarber_backend_with_NodeJS</strong>
-            <p>Server for GoBarber - Find a barber shop near you</p>
-          </div>
-
-          <FiChevronRight size={20} />
-        </a>
-        <a href='teste'>
-          <img
-            src='https://avatars1.githubusercontent.com/u/46872902?s=460&u=7e7ec75c273f6efea8dd8daea334867705651c25&v=4'
-            alt='Enzo Rossetto'
-          />
-          <div>
-            <strong>enzorossetto/GoBarber_backend_with_NodeJS</strong>
-            <p>Server for GoBarber - Find a barber shop near you</p>
-          </div>
-
-          <FiChevronRight size={20} />
-        </a>
-        <a href='teste'>
-          <img
-            src='https://avatars1.githubusercontent.com/u/46872902?s=460&u=7e7ec75c273f6efea8dd8daea334867705651c25&v=4'
-            alt='Enzo Rossetto'
+            src="https://avatars1.githubusercontent.com/u/46872902?s=460&u=7e7ec75c273f6efea8dd8daea334867705651c25&v=4"
+            alt="Enzo Rossetto"
           />
           <div>
             <strong>enzorossetto/GoBarber_backend_with_NodeJS</strong>
